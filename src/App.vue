@@ -1,28 +1,41 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app id="inspire">
+    <NavBar></NavBar>
+    <div class="pa-10">
+      <router-view/>
+    </div>
+    <v-footer color="blue lighten-1"
+              app>
+      <span class="white--text">&copy; 2019</span>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import NavBar from './components/Navbar'
+  export default {
+    components: {
+      NavBar
+    },
+    data() {
+      return {
+        drawer: null
+      }
+    },
+    computed: {},
+    created() {
+      this.getMenuData()
+    },
+    methods: {
+      async getMenuData() {
+      }
+    }
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" scoped>
+  .bread {
+    margin: 0;
+  }
 </style>
